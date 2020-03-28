@@ -1,6 +1,6 @@
 import Foundation
 
-struct Stack<T> {
+struct Stack<T: Equatable>: Equatable  {
    private var typeArr = [T]()
 
     public var peek: T? {
@@ -20,14 +20,19 @@ struct Stack<T> {
     }
 }
 
-
 var stack = Stack<Int>()
 stack.push(item: -100)
 stack.push(item: -10)
 stack.push(item: -20)
 stack.push(item: 5)
 
-print(stack)
+print("Original:\(stack)")
+
+var stack2 = Stack<Int>()
+stack2.push(item: -100)
+stack2.push(item: -10)
+stack2.push(item: -20)
+stack2.push(item: 5)
 
 //Problem One:
 //Find the largest integer in a Stack of Ints
@@ -52,8 +57,20 @@ largestElement(in: stack)
 //Problem Two:
 //Find the sum of a Stack of Ints
 func sum(stack: Stack<Int>) -> Int {
-    return 0
+    guard !stack.isEmpty else {return -10000}
+    
+    var stackCopy = stack
+    
+    var allSum = 0
+    
+    while !stackCopy.isEmpty {
+        guard let currentElemet = stackCopy.pop() else {return -10000}
+        allSum += currentElemet
+    }
+    return allSum
 }
+
+sum(stack: stack)
 
 //Problem Three:
 //Reverse a Stack without using an Array
@@ -74,38 +91,47 @@ func sum(stack: Stack<Int>) -> Int {
  */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
-    return Stack<T>()
+    var reverseStack = Stack<T>()
+    let emptyStack = Stack<T>()
+    var stackCopy = stack
+    
+    while !stackCopy.isEmpty {
+        guard let currentElement = stackCopy.pop() else {return emptyStack}
+        reverseStack.push(item: currentElement)
+    }
+    return reverseStack
 }
 
+print("Reverse: \(reverse(stack: stack))")
 
 //Problem Four:
 //Determine if two stacks are equal
 func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
+    var stack1 = stackOne
+    var stack2 = stackTwo
+    
+    guard let stack1Element = stack1.pop() else {return false}
+    guard let stack2Element = stack2.pop() else {return false}
+    
+    while !stack1.isEmpty && !stack2.isEmpty {
+        if stack1Element == stack2Element {
+            return true
+        }
+    }
     return false
 }
 
+equalStacks(stackOne: stack, stackTwo: stack2)
 
 //Problem Five:
 //Write a function that pushes a new element to the bottom of a Stack
 func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
-    return Stack<T>()
+    
+    var answerStack = reverse(stack: stack)
+    answerStack.push(item: newElement)
+    
+    return reverse(stack: answerStack)
 }
 
-//Problem Six:
-//Determine if the parentheses are balanced in a given String
-//Sample input: ((()))
-//Sample output: true
-//Sample input: ((())
-//Sample output: false
-//Sample input: (()((())()))
-//Sample output: false
+print(pushBottom(stack: stack, newElement: 25))
 
-func isBalanced(str: String) -> Bool {
-    return false
-}
-
-//Bonus: Problem Seven:
-//Use a stack to convert a number in decimal to binary
-func convertToBinary(_ num: Int) -> String {
-    return ""
-}

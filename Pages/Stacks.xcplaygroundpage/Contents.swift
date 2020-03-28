@@ -74,21 +74,6 @@ sum(stack: stack)
 
 //Problem Three:
 //Reverse a Stack without using an Array
-//Sample input:
-/*
- 4
- 2
- 9
- 3
- */
-
-//Sample output:
-/*
- 3
- 9
- 2
- 4
- */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
     var reverseStack = Stack<T>()

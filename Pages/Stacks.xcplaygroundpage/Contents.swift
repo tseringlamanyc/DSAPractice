@@ -74,7 +74,6 @@ sum(stack: stack)
 
 //Problem Three:
 //Reverse a Stack without using an Array
-
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
     var reverseStack = Stack<T>()
     let emptyStack = Stack<T>()
@@ -119,4 +118,3 @@ func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
 }
 
 print(pushBottom(stack: stack, newElement: 25))
-

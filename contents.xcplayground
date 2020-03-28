@@ -3,5 +3,6 @@
     <pages>
         <page name='Stacks'/>
         <page name='Practice'/>
+        <page name='Queues'/>
     </pages>
 </playground>

@@ -6,5 +6,6 @@
         <page name='Linked List'/>
         <page name='Recursion'/>
         <page name='Binary Search'/>
+        <page name='Bubble Sort'/>
     </pages>
 </playground>

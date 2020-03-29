@@ -16,7 +16,7 @@ struct Stack<T: Equatable>: Equatable  {
         return typeArr.removeLast()
     }
     var isEmpty: Bool {
-        return typeArr.count == 0
+        return typeArr.isEmpty
     }
 }
 

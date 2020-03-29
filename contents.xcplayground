@@ -4,5 +4,6 @@
         <page name='Stacks'/>
         <page name='Queues'/>
         <page name='Linked List'/>
+        <page name='Recursion'/>
     </pages>
 </playground>

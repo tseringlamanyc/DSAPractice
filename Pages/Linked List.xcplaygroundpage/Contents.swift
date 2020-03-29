@@ -106,6 +106,7 @@ class Linkedlist<T: Equatable> {
         
         while currentNode != nil {
             totalCount += 1
+            print(currentNode?.value as Any)
             currentNode = currentNode?.nextValue
         }
         return totalCount
@@ -161,9 +162,30 @@ class Linkedlist<T: Equatable> {
     
     func toArr() -> [T] {return Array<T>()}
     
-    func reversed() -> Linkedlist<T> {return Linkedlist<T>()}
+    func reversed() -> Linkedlist<T> {
+        let reversedLL = Linkedlist<T>()
+        
+        var previousNode: Node<T>?
+        
+        var currentNode = head
+        
+        while currentNode != nil {
+
+            let nextNode = currentNode?.nextValue // A -> B (B is nextValue)
+            
+            currentNode?.nextValue = previousNode  // nil <- A , initially
+            
+            previousNode = currentNode // nil becomes A
+            currentNode = nextNode // A becomes B 
+        }
+        
+        reversedLL.head = previousNode
+        return reversedLL
+    }
     
-    func removeAll() {}
+    func removeAll() {
+        head = nil
+    }
     
 }
 
@@ -188,11 +210,17 @@ list2.append(value: "D")
 
 print(list)
 list.count
+
+print(list.reversed())
+
 list.getNode(at: 2)
+
 list.contains(element: "A")
 list.contains(element: "X")
 
 list.equals(otherList: list2)
+
+list.reversed()
 
 list.removeLast()
 print(list)

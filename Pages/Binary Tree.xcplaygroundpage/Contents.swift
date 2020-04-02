@@ -3,9 +3,9 @@ import UIKit
 /*
  BINARY TREE
  - Root node
-   value <T>
-   L child?
-   R child?
+ value <T>
+ L child?
+ R child?
  - Abstract data types
  */
 
@@ -132,6 +132,7 @@ extension BinaryTreeNode {
         visit(self)
     }
 }
+print()
 
 print("In order")
 rootNode1.inorderTraversal { (node) in
@@ -139,6 +140,7 @@ rootNode1.inorderTraversal { (node) in
 }
 
 print()
+
 
 print("Pre order")
 rootNode1.preorderTraversal { (node) in

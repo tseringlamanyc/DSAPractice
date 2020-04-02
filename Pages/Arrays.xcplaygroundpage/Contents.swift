@@ -83,11 +83,13 @@ func largestTwoMultiples(arr: [Int]) -> Int {
         if num > first {
             second = first
             first = num
-            print(first, second)
+        } else if num > second {
+            second = num
         }
     }
     
     return first * second
+    
 }
 
 largestTwoMultiples(arr: [1, 2, 7, 3, 9, 5])

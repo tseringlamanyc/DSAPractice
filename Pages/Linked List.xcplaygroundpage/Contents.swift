@@ -29,9 +29,13 @@ extension Node: CustomStringConvertible {
 
 let train12 = Node<Int>(value: 12)
 let train99 = Node<Int>(value: 99)
+let train10 = Node<Int>(value: 10)
+let train19 = Node<Int>(value: 19)
 
 // connect the nodes
 train12.nextValue = train99
+train99.nextValue = train10
+train10.nextValue = train19
 print(train12)
 
 // Linked list
@@ -224,7 +228,3 @@ list.reversed()
 
 list.removeLast()
 print(list)
-
-
-
-

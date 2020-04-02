@@ -7,5 +7,9 @@
         <page name='Recursion'/>
         <page name='Binary Search'/>
         <page name='Bubble Sort'/>
+        <page name='Insertion Sort'/>
+        <page name='Merge Sort'/>
+        <page name='Binary Tree'/>
+        <page name='Arrays'/>
     </pages>
 </playground>

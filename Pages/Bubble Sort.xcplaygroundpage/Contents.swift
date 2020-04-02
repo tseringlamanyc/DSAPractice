@@ -7,7 +7,7 @@ import UIKit
  */
 
 func bubbleSort(arr: inout [Int]) {  // in place manipulation
-    
+    guard arr.count >= 2 else {return}
     for _ in 0..<arr.count { // O(n)
         for j in 1..<arr.count { // comparing second value  O(n)
             if arr[j] < arr[j - 1] { // arr[j - 1] refers to the first value

@@ -8,7 +8,6 @@ func recurse(num: Int) {
 
 func countdownToZero (num: Int) {
     guard num >= 0 else {return}
-    print(num)
     countdownToZero(num: num - 1)
 }
 
@@ -62,3 +61,25 @@ func tribonacci(_ n: Int) -> Int {
     return triResult
 }
 
+
+func reverseString(sentence: String) -> String {
+        
+    guard sentence.count != 0 else {return ""}
+
+    var arrSentence = sentence.components(separatedBy: " ")
+    
+    let firstWord = arrSentence.popLast() ?? "no word"    // sup
+    
+    // ["Hello", "world", "sup"]
+    // "sup"
+    
+    if arrSentence.count == 0 {
+        return firstWord
+    } else {
+        return firstWord + " " + reverseString(sentence: arrSentence.joined(separator: " "))
+        
+        // sup + " " +
+    }
+}
+
+print(reverseString(sentence: "Hello world sup").description)

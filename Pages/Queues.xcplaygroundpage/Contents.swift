@@ -52,6 +52,8 @@ queue2.enqueue(item: 1)
 queue2.enqueue(item: 2)
 queue2.enqueue(item: -1)
 
+print(queue2)
+
 //1. Find the smallest element in a queue
 func smallestElement<T: Comparable>(in q: Queue<T>) -> T? {
     var qCopy = q

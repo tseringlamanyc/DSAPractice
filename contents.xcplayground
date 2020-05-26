@@ -10,6 +10,6 @@
         <page name='Insertion Sort'/>
         <page name='Merge Sort'/>
         <page name='Binary Tree'/>
-        <page name='Arrays'/>
+        <page name='Hashtable'/>
     </pages>
 </playground>

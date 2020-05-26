@@ -1,8 +1,8 @@
 import Foundation
 
 struct Stack<T: Equatable>: Equatable  {
-   private var typeArr = [T]()
-
+    private var typeArr = [T]()
+    
     public var peek: T? {
         return typeArr.last
     }
@@ -118,3 +118,39 @@ func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
 }
 
 print(pushBottom(stack: stack, newElement: 25))
+
+// print in reverse
+func printReverse<T: Equatable>(arr: [T]) {
+    var stack = Stack<T>()
+    
+    for value in arr {
+        stack.push(item: value)
+    }
+    
+    while !stack.isEmpty {
+        guard let currentElement = stack.pop() else {return}
+        print(currentElement)
+    }
+}
+
+printReverse(arr: [1,2,3])
+
+func balancedParenthesis(phrase: String) -> Bool {
+    var stack = Stack<Character>()
+    
+    for char in phrase {
+        if char == "(" {
+            print("pushed \(char)")
+            stack.push(item: char)
+        } else if char == ")" {
+            if stack.isEmpty {
+                return false
+            } else {
+                stack.pop()
+        }
+    }
+}
+    return stack.isEmpty
+}
+
+balancedParenthesis(phrase: "((hello)")

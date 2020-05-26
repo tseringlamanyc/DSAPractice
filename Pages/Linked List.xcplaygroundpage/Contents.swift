@@ -144,7 +144,7 @@ class Linkedlist<T: Equatable> {
     
     func equals(otherList: Linkedlist<T>) -> Bool {
         
-        if isEmpty && otherList.isEmpty {
+        if isEmpty && otherList.isEmpty  {
             print("Both empty")
             return true
         }
@@ -191,6 +191,18 @@ class Linkedlist<T: Equatable> {
         head = nil
     }
     
+    var middle: Node<T>? {
+        var slow = head
+        var fast = head
+        
+        while fast != nil && fast?.nextValue != nil {
+            slow = slow?.nextValue
+            fast = fast?.nextValue?.nextValue
+        }
+        
+        return slow
+    }
+    
 }
 
 extension Linkedlist: CustomStringConvertible {
@@ -214,6 +226,8 @@ list2.append(value: "D")
 
 print(list)
 list.count
+
+list.middle
 
 print(list.reversed())
 

@@ -26,13 +26,13 @@ func binarySearch<T: Comparable>(arr: [T], searchKey: T, range: Range<Int>) -> I
     if arr[middleIndex] == searchKey {
         return middleIndex
     }
-    
-    // middleIndex > key, look at the left side
+        
+        // middleIndex > key, look at the left side
     else if arr[middleIndex] > searchKey {
         return binarySearch(arr: arr, searchKey: searchKey, range: range.lowerBound..<middleIndex) // not including middle index
     }
-    
-    // middleIndex < key, look at the right side
+        
+        // middleIndex < key, look at the right side
     else if arr[middleIndex] < searchKey {
         return binarySearch(arr: arr, searchKey: searchKey, range: middleIndex + 1..<range.upperBound) // not including middleIndex
     }
@@ -60,7 +60,7 @@ binarySearch1(arr: list, target: 10)
 
 // 2. Find if an element is contained within a sorted array in O(log(n)) time.  Use recursion.
 func recursiveBinarySearch<T: Comparable>(arr: [T], target: T) -> Bool {
-
+    
     guard arr.count != 0 else { return false }
     
     let lowerBound = 0
@@ -75,14 +75,14 @@ func recursiveBinarySearch<T: Comparable>(arr: [T], target: T) -> Bool {
     if arr[middleIndex] == target {
         return true
     }
-    
+        
     else if target > arr[middleIndex] {  // right side
         let rightSide = arr[middleIndex + 1...upperBound]
         let array = Array(rightSide)
         return binarySearch1(arr: array, target: target)
     }
-    
-    
+        
+        
     else if target < arr[middleIndex] { // left side
         let leftSide = arr[lowerBound..<middleIndex]
         let array = Array(leftSide)
@@ -120,11 +120,11 @@ func lastOccurrence<T: Comparable>(of value: T, in arr: [T]) -> Int? {
     if arr[middleIndex] == value {
         return middleIndex
     }
-    
+        
     else if arr[middleIndex] > value {
         return binarySearch(arr: arr, searchKey: value, range: lowerBound..<middleIndex)
     }
-    
+        
     else if arr[middleIndex] < value {
         return binarySearch(arr: arr, searchKey: value, range: middleIndex..<upperBound + 1)
     }
@@ -139,3 +139,33 @@ lastOccurrence(of: 2, in: list)
 func smallestMissingNumber(in arr: [Int]) -> Int {
     return -1
 }
+
+func search(_ nums: [Int], _ target: Int) -> Int {
+    
+    guard nums.count > 0 else {return 0}
+    
+    var lowerBound = 0
+    var upperBound = nums.count - 1
+    
+    if lowerBound >= upperBound {
+        return 0
+    }
+    
+    let middleIndex = lowerBound + (upperBound - lowerBound) / 2
+    
+    if nums[middleIndex] == target {
+        return middleIndex
+    }
+        
+    else if nums[middleIndex] < target {
+        lowerBound = middleIndex + 1
+    }
+        
+    else if nums[middleIndex] > target {
+        upperBound = middleIndex - 1
+    }
+    
+    return 0
+}
+
+search([-1,0,3,5,9,12], 9)

@@ -77,7 +77,6 @@ func reverseString(sentence: String) -> String {
         return firstWord
     } else {
         return firstWord + " " + reverseString(sentence: arrSentence.joined(separator: " "))
-        
         // sup + " " +
     }
 }

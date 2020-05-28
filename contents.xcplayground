@@ -11,5 +11,6 @@
         <page name='Merge Sort'/>
         <page name='Binary Tree'/>
         <page name='Hashtable'/>
+        <page name='Binary search tree'/>
     </pages>
 </playground>

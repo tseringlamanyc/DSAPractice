@@ -82,20 +82,44 @@ class DoublyLinkedList {
     
     // TODO: prepend (add a node to the front)
     func prepend(_ value: Int) {
+        let newNode = DLNode(value)
         
+        guard let firstNode = head else {
+            head = newNode
+            tail = newNode
+            return
+        }
+        
+        head?.previous = newNode
+        newNode.next = firstNode
+        head = newNode
     }
     
     // TODO: delete head
     func deleteHead() {
+        guard let currentHead = head else {
+            return
+        }
         
+        head = currentHead.next
+        currentHead.previous = nil
     }
     
     // TODO: delete tail
     func deleteTail() {
-        
+        guard let lastNode = tail else {
+            return
+        }
+        tail = lastNode.previous
+        tail?.next = nil 
     }
     
     // TODO: insert value after node (list.head.next)
+    func insertNode(_ node: DLNode, _ value: Int) {
+        
+    }
+    
+    // TODO: delete value at index
     
 }
 
@@ -105,6 +129,9 @@ example("testing append") {
     list.append(10)
     list.append(7)
     list.append(5)
+    list.prepend(1)
+    list.deleteHead()
+    list.deleteTail()
     list.printForward() // 10 -> 7 -> 5 -> nil
 }
 

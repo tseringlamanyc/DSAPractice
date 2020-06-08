@@ -12,5 +12,6 @@
         <page name='Binary Tree'/>
         <page name='Hashtable'/>
         <page name='Binary search tree'/>
+        <page name='Doubly Linked List '/>
     </pages>
 </playground>
